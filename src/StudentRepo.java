@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class StudentRepo implements Repository<Student> {
     private static String path = "src/student.txt";
 
@@ -51,5 +52,10 @@ public class StudentRepo implements Repository<Student> {
     public void save(Student student) {
         students.add(student);
         uploadDate();
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return students;
     }
 }
