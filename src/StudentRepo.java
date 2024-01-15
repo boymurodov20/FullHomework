@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class StudentRepo implements Repository<Student> {
     private static String path = "src/student.txt";
 
@@ -58,4 +59,14 @@ public class StudentRepo implements Repository<Student> {
     public List<Student> findAll() {
         return students;
     }
+
+    @Override
+    public void update(Student student) {
+        if (student != null) {
+            student.setName(Input.inputString(" enter new name"));
+            student.setAge(Input.inputNumber(" enter new age"));
+            uploadDate();
+        }
+    }
+
 }
